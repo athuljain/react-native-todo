@@ -1,23 +1,58 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { Text } from "react-native"
-import { View } from "react-native"
-import Welcome from "./Welcome"
-import Logout from "./Logout"
-import TodoList from "./Todo/TodoList"
-import Entypo from '@expo/vector-icons/Entypo';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Text } from "react-native";
+import { View } from "react-native";
+import Welcome from "./Welcome";
+import Logout from "./Logout";
+import TodoList from "./Todo/TodoList";
+import Entypo from "@expo/vector-icons/Entypo";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
-const Home=()=>{
-    const Tab=createBottomTabNavigator()
-    return(
-       <Tab.Navigator>
-        <Tab.Screen name="Welcome" component={Welcome}
+const Home = () => {
+  const Tab = createBottomTabNavigator();
+  return (
+    <Tab.Navigator
+   screenOptions={{
+    // headerShown: false, // Hides the top header
+    tabBarActiveTintColor: "white",
+    tabBarInactiveTintColor: "#91E3AC",
+    tabBarActiveBackgroundColor: "#1D8C30",
+    tabBarStyle: {
+      backgroundColor: "#095716",
+      borderTopWidth: 0, // Removes the subtle line at the top of the bar
+      elevation: 5,      // Adds a shadow on Android
+    },
+    tabBarLabelStyle: {
+      fontWeight: '600',
+    }
+  }}
+    >
+      <Tab.Screen
+        name="Welcome"
+        component={Welcome}
         options={{
-            tabBarIcon:()=><Entypo name="home" size={24} color="black" />
+          tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
         }}
-        />
-        <Tab.Screen name="Logout" component={Logout}/>
-        <Tab.Screen name="Todo List" component={TodoList}/>
-       </Tab.Navigator>
-    )
-}
+      />
+      <Tab.Screen
+        name="Logout"
+        component={Logout}
+        options={{
+          tabBarIcon: () => 
+            <MaterialIcons name="logout" size={24} color="black" />
+          ,
+        }}
+      />
+      <Tab.Screen
+        name="Todo List"
+        component={TodoList}
+        options={{
+          tabBarIcon: () => 
+            <FontAwesome5 name="th-list" size={24} color="black" />
+          ,
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
 export default Home;
