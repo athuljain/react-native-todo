@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { 
     Text, 
@@ -12,12 +13,15 @@ import {
 } from "react-native";
 
 const AddTodo = () => {
+    const navigation = useNavigation()
     const [todoTitle,setTodoTitle]=useState("")
     const [todoDescription,setTodoDescription]=useState("")
     const handleCreate=()=>{
         if(todoTitle.trim()==""|| todoDescription.trim()==""){
             return Alert.alert("warning","please add title & description")
         }
+        Alert.alert("success!","todo created")
+        navigation.navigate("Todo List");
         console.log(todoTitle);
         
     }

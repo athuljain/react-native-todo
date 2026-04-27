@@ -1,7 +1,9 @@
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Entypo from '@expo/vector-icons/Entypo';
+import { useNavigation } from "@react-navigation/native";
 
 const Welcome = () => {
+    const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <Text style={styles.header}>To-Do App</Text>
@@ -24,7 +26,7 @@ const Welcome = () => {
             {/* Styled Button */}
             <TouchableOpacity 
                 style={styles.button} 
-                onPress={() => console.log("Button Pressed!")}
+               onPress={() => navigation.navigate("AddTodo")}
                 activeOpacity={0.7} // Visual feedback when tapped
             >
                 <Entypo name="add-to-list" size={20} color="white" />
