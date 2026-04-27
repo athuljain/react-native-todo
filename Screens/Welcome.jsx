@@ -1,4 +1,5 @@
-import { Text, View, StyleSheet, Image } from "react-native"; // Added Image here
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import Entypo from '@expo/vector-icons/Entypo';
 
 const Welcome = () => {
     return (
@@ -11,16 +12,25 @@ const Welcome = () => {
                     To-do app. But we’re going to do it again, 
                     as a website, and for good reason: it’s the perfect scope. 
                     A to-do app is fairly simple, 
-                    adding and removing short bits of text forming a list. 
-                    But it’s not too simple. It requires us to think about all sorts of things.
+                    adding and removing short bits of text forming a list.
                 </Text>
-                {/* Added a style to the Image */}
                 <Image 
                     source={require("../assets/Task-bro.png")} 
                     style={styles.illustration}
                     resizeMode="contain" 
                 />
             </View>
+
+            {/* Styled Button */}
+            <TouchableOpacity 
+                style={styles.button} 
+                onPress={() => console.log("Button Pressed!")}
+                activeOpacity={0.7} // Visual feedback when tapped
+            >
+                <Entypo name="add-to-list" size={20} color="white" />
+                <Text style={styles.buttonText}>Create Todo</Text>
+            </TouchableOpacity>
+
         </View>
     );
 };
@@ -47,22 +57,44 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor: '#fff',
         padding: 15,
-        borderRadius: 10,
-        alignItems: 'center', // Centers the image horizontally in the card
+        borderRadius: 15,
+        alignItems: 'center',
         shadowColor: '#000',
         shadowOpacity: 0.1,
-        shadowRadius: 5,
+        shadowRadius: 10,
         elevation: 3,
+        marginBottom: 30, // Space between card and button
     },
     bodyText: {
         fontSize: 14,
         lineHeight: 22,
         color: '#444',
-        marginBottom: 15, // Added some space before the image
+        marginBottom: 15,
+        textAlign: 'center',
     },
     illustration: {
-        width: 200,   // You must specify dimensions
-        height: 200,
+        width: 180,
+        height: 180,
+    },
+    button: {
+        backgroundColor: '#062e06', // A nice blue
+        flexDirection: 'row',       // Places icon and text side-by-side
+        paddingVertical: 15,
+        paddingHorizontal: 25,
+        borderRadius: 30,           // Pill-shaped button
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'center',        // Prevents button from stretching to full width
+        shadowColor: '#02430e',
+        shadowOpacity: 0.4,
+        shadowRadius: 5,
+        elevation: 5,
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16,
+        marginLeft: 10,             // Space between icon and text
     },
 });
 
