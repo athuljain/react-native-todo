@@ -7,6 +7,9 @@ import TodoList from "./Todo/TodoList";
 import Entypo from "@expo/vector-icons/Entypo";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import AddTodo from "./Todo/AddTodo";
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 const Home = () => {
   const Tab = createBottomTabNavigator();
@@ -32,6 +35,15 @@ const Home = () => {
         component={Welcome}
         options={{
           tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
+        }}
+      />
+       <Tab.Screen
+        name="AddTodo"
+        component={AddTodo}
+        options={{
+          tabBarIcon: () => 
+           <Ionicons name="add-circle" size={24} color="black" />
+          ,
         }}
       />
       <Tab.Screen
