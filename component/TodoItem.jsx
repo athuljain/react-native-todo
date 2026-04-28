@@ -1,7 +1,14 @@
-import { View, Text, StyleSheet } from "react-native"; 
+import { useNavigation } from "@react-navigation/native";
+import { View, Text, StyleSheet, Pressable } from "react-native"; 
 
 const TodoItem = ({ item }) => {
+    const navigation=useNavigation()
+
+    const handlePress=()=>{
+        navigation.navigate("Todo Details", { item });
+    }
     return (
+        <Pressable onPress={handlePress}>
         <View style={styles.card}>
             <View style={styles.infoContainer}>
                 <Text style={styles.title}>{item?.title}</Text>
@@ -11,6 +18,7 @@ const TodoItem = ({ item }) => {
                 <Text style={styles.statusText}>ID: {item?.id}</Text>
             </View>
         </View>
+        </Pressable>
     );
 };
 
