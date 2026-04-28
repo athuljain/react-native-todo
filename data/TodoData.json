@@ -1,0 +1,12 @@
+[
+  { "id": 1, "title": "Todo1", "description": "Prepare project proposal" },
+  { "id": 2, "title": "Todo2", "description": "Setup React Native environment" },
+  { "id": 3, "title": "Todo3", "description": "Configure React Navigation" },
+  { "id": 4, "title": "Todo4", "description": "Design login UI screen" },
+  { "id": 5, "title": "Todo5", "description": "Connect to Node.js backend" },
+  { "id": 6, "title": "Todo6", "description": "Implement Context API for Auth" },
+  { "id": 7, "title": "Todo7", "description": "Setup MongoDB database" },
+  { "id": 8, "title": "Todo8", "description": "Test JWT token storage" },
+  { "id": 9, "title": "Todo9", "description": "Debug scrolling performance" },
+  { "id": 10, "title": "Todo10", "description": "Deploy to App Store" }
+]
